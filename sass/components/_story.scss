@@ -1,0 +1,71 @@
+.story {
+    width: 75%; 
+    margin: 0 auto; 
+    box-shadow: 0 3rem 6rem rgba($color-dark, 0.4); 
+    background-color: rgba ($color-white, 0.6); 
+    border-radius: 3px; 
+    padding: 6rem;  
+    padding-left: 9rem; //Vì circle dịch chuyển 3rem so với chính nó nên 6 + 3 = 9 rem
+    font-size: $default-font-size; 
+    transform: skewX(-12deg);   
+
+   
+
+    &__shape { //Bọc hình ảnh bằng = thẻ <figure> 
+        width: 15rem; 
+        height: 15rem; 
+        background-color: orangered;
+        float:left;  
+
+         shape-outside: circle(50% at 50% 50%); // radius 50% - center of circle 50% 50%  --> Xác định nơi content float xung quanh element (circle)
+         -webkit-shape-outside: circle(50% at 50% 50%); //Safari support 
+        
+         -webkit-clip-path: circle(50% at 50% 50%);
+         clip-path: circle(50% at 50% 50%); //Chuyển từ hình vuông sang circle  
+
+        transform: translateX(-3rem)  skewX(12deg); //Tạo khoảng cách giữa circle và content bao quanh nó không nên đụng vào margin vì float --> 
+                                                    //Dùng transform.
+        position: relative;    
+        backface-visibility: hidden;
+    
+    }
+        
+  
+
+    &__image { 
+        height: 100%;
+        transform: translateX(-4rem) scale(1.4); //Chỉnh ảnh cô gái nằm giữa hình tròn   
+        transition: all 0.2s;   
+    }
+
+    &__text {
+        transform: skewX(12deg);  
+    } 
+
+    &__caption { //Tên chạy lên khi hover đến toàn bộ thẻ class story
+        position: absolute;  
+        top: 50%; 
+        left: 50%;  
+       
+        transform: translate(-50%, 20%);  //Đẩy phần tử xuống cuối + Làm nó biến mất tạm thời
+        opacity: 0; 
+
+        color: $color-white; 
+        text-transform: uppercase; 
+        font-size: 1.7rem; 
+        text-align: center; 
+        transition: all 0.2s;  
+
+
+    } 
+
+    &:hover &__caption { //Tên hiện lên trên hình ảnh circle
+        opacity: 1; 
+        transform: translate(-50%, -50%);
+    } 
+
+    &:hover &__image { //Ảnh circle nhỏ đi
+        transform: translateX(-4rem)  scale(1);
+        filter: blur(3px) brightness(80%); // Làm mờ ảnh + làm sáng hơn   
+    }
+} 

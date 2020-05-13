@@ -1,0 +1,43 @@
+@keyframes moveFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(10rem);
+    } 
+
+    100% {
+        opacity: 1; 
+        transform: translateY(0);
+    }
+} 
+
+@keyframes moveFromLeft {
+    0% {
+        opacity: 0; /*Mờ hẳn = Tàng hình*/
+        transform: translateX(-10rem);
+    } 
+
+    80% {
+        transform: translateX(2rem);
+    }
+    100% {
+        opacity: 1; /*Hết mờ = Hiện hình*/ 
+        transform: translateX(0);
+    }
+} 
+
+@keyframes moveFromRight {
+    0% {
+        opacity: 0; 
+        transform: translateX(20rem);
+    } 
+
+    80% {
+        transform: translateX(-5rem);
+    } 
+
+    100% { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+} 
+

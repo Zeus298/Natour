@@ -1,0 +1,46 @@
+.section-about { //3 ảnh 
+    background-color: $color-gray-light-1; 
+    padding: 25rem 0; 
+    margin-top: -20vh;
+} 
+
+.section-feature { //4 cột nhỏ
+    padding: 20rem 0; 
+    background-image: linear-gradient( to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8)) ,  url("../img/nat-4.jpg"); 
+    background-size: cover; 
+    transform: skewY(-7deg); //Để cho phần section-feature thành đường chéo = dùng clip-path
+    margin-top: -10rem; //Đẩy nó lên để không có khoảng trắng giữa section-feature  và section-about 
+
+    & > * { //Chọn các phần tử con trực tiếp của section-feature chính là row
+        transform: skewY(7deg);
+    }
+} 
+
+.section-tours { //3 cột lật
+    background-color: $color-gray-light-1; 
+    padding: 25rem 0 10rem 0; 
+    margin-top: -10rem; 
+} 
+
+.section-story {
+    padding: 15rem 0; 
+    position: relative;
+} 
+
+.section-book {
+    padding: 13rem 0; 
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark); 
+    
+} 
+
+.book {
+    background-image: linear-gradient(105deg, rgba($color-white, 0.9) 0%, rgba($color-white, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg); 
+    background-size: 100%; 
+    box-shadow: 0 2rem 3rem rgba($color-dark, 0.3);
+    height: 50rem;
+    
+    &__form {
+        width: 50%; 
+        padding: 6rem;
+    }
+}

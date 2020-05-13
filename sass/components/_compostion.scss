@@ -1,0 +1,43 @@
+/*Phần ảnh trong section-about (sau phần header) - 3 ảnh có hiệu ứng phóng to*/
+.compostion {  
+
+    position: relative;
+
+    &__photo {
+        width: 55%; 
+        box-shadow: 0 2rem 4rem rgba($color-dark, 0.5);  
+        border-radius: 2px; 
+        position: absolute; 
+        z-index: 10; 
+        transition: all 0.2s; 
+        outline-offset: 2rem; /*Khoảng cách giữa outline và box element*/
+        
+        &--p1 {
+            left: 0; 
+            top: -2rem;
+        }  
+
+        &--p2 {
+            right: 0; 
+            top: 2rem;
+        } 
+
+        &--p3 {
+            left: 20%; 
+            top: 10rem;
+        }  
+
+        &:hover {  //(*1*)
+            outline: 1.5rem solid $color-primary; /*Tương tự border nhưng nó bọc quanh cả 1 box (content -> padding -> border -> margin -> outline)*/
+            transform: scale(1.1) translateY(-0.5rem); 
+            box-shadow: 0 2.5rem 4rem rgba($color-dark, 0.6); 
+            z-index: 20; 
+        } 
+
+
+    } 
+
+    &:hover &__photo:not(:hover) { /*Có 3 ảnh. Khi hover 1 anh nó sẽ chạy (1). Còn hiệu ứng cho 2 ảnh không được hover sẽ là cái này */
+        transform: scale(0.9);
+    }
+}

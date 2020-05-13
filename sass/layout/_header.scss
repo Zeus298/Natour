@@ -1,0 +1,29 @@
+
+.header {
+    height: 95vh; /*Quy định chiểu dọc của header*/
+    background-image: linear-gradient( to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8)) ,  url("../img/hero.jpg"); /*Đi từ left -> right*/ 
+    background-size: cover;  /*Ảnh bao phủ toàn bộ phần header*/
+    background-position: center; /*Thay đổi kích thước, giữ phần center của bức ảnh background*/ 
+    clip-path : polygon(0 0 , 100% 0 , 100% 75vh , 0 100%); /*Tọa độ 4 điểm. Chiều x từ trái sang phải, chiều y từ trên xuống dưới. Gốc 0 = top/left*/
+    position: relative; /*Mặc định*/ 
+   
+    /*Phần bọc ngoài logo  div*/
+    &__logo-box {
+        position: absolute;
+        top: 4rem;  
+        left: 4rem;
+    } 
+    /*Phần logo img*/
+    &__logo {
+        height: 4rem;
+    } 
+    
+    /*Bọc 2 phần text + button a*/
+    &__text-box {
+        position: absolute; 
+        top: 40%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); /*Di chuyển vị trí so với chính nó 50% về phía bên trái, 50% về phía trên*/ 
+        text-align: center; /*Chỉnh phần button <a> = inline-block + text nằm giữa*/
+    } 
+} 

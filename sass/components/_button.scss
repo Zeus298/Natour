@@ -1,0 +1,117 @@
+
+.btn { 
+
+    /*Phần button chung
+    :visited =  a link the user has visited 
+    Nếu không quy định link mặc định màu xanh -> click vào thì chuyển màu hồng 
+    Mục đích = visited state giống như link state*/
+    &, &:link, &:visited {
+
+        text-transform: uppercase; 
+        text-decoration: none; 
+        padding: 1.5rem 4rem; 
+        display: inline-block;   
+        border-radius: 3rem;
+        transition: all 0.2s; /*Nếu không biết animate thuộc tính nào thì all*/  
+        position: relative; /*Để làm mốc cho btn::after căn chỉnh phía sau*/ 
+        font-size: 1.6rem;  
+
+        
+        //Cái này là cho button element 
+        border: none; //Vì button mặc định có border
+        cursor: pointer;
+    } 
+
+    &:hover {
+        transform: translateY(-0.3rem); 
+        box-shadow: 0 1rem 2rem rgba($color-dark,0.8); /*Độ rộng của bóng theo chiều x , Độ rộng của bóng theo chiều y, Độ lan tỏa cảng cao --> Cảm giác càng xa 20px = Cao , Màu*/
+    }  
+
+    /*Click element*/
+    &:active //,&:focus //Cái này cho button khi click  vì <button> khác <a> 
+    {   
+        outline: none; //Cho button
+        transform: translateY(-5px); 
+        box-shadow: 0 5px 5px rgba($color-dark,0.8);
+    }
+
+    /*Phần button Discover our tour trong text-box*/
+    &--white {
+        background-color: $color-white;
+        color: $color-gray-dark; 
+        margin-top: 3rem;  
+
+        /*pseudo-element set giống như element*/
+        &::after {
+            background-color: $color-white;
+        }
+
+
+    }  
+
+    /*Giống hệt button text-box nhưng nó nằm ở phần secton-tour (3 cột lật)*/
+    &--green {
+        background-color: $color-primary;
+        color: $color-white; 
+        margin-top: 3rem;  
+
+        /*pseudo-element set giống như element*/
+        &::after {
+            background-color: $color-primary;
+        }
+
+
+    } 
+
+    /*Làm nó giống như child của button btn - pseudo element*/
+    &::after {
+        content: ""; 
+        display: inline-block; 
+        height: 100%;
+        width: 100%; 
+        border-radius: 3rem; 
+        position: absolute;
+        top: 0 ; 
+        left: 0 ;
+        z-index: -1; /*Chắc chắn nó nằm sau .btn*/ 
+        transition: all 0.5s; 
+    } 
+
+
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.6); 
+        opacity: 0; 
+    }  
+
+    /*Bắt đầu load trang có animation của btn*/
+    &--animated {
+        animation: moveFromBottom 0.5s ease-out 0.75s; /*animation: tên - thời gian - phân bổ thời gian - deylay sau bao nhiêu s thì bắt đầu chạy*/ 
+        animation-fill-mode: backwards; /*Animation bắt đầu cùng lúc với animation khác*/
+    } 
+
+
+} 
+
+.btn-text { /*Button Learn more phần section-about*/
+    &:link, &:visited {
+        color: $color-primary; 
+        display: inline-block; 
+        text-decoration: none; 
+        border-bottom: 1px solid $color-primary; 
+        font-size: $default-font-size; 
+        padding: 3px; 
+        transition: all 0.2s;
+    } 
+
+    &:hover {
+        background-color: $color-primary; 
+        color: $color-white; 
+        box-shadow: 0 1rem 2rem rgba($color-dark, 0.2); 
+        transform: translateY(-2px);
+    } 
+
+    &:active {
+        box-shadow: 0 1rem 1rem rbga($color-dark, 0.2); 
+        transform: translateY(2px);
+    }
+}

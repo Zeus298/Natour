@@ -1,0 +1,148 @@
+.card { 
+
+    perspective: 150rem; //Quay theo trục Y nó mượt hơn
+    -moz-perspective: 150rem;
+    position: relative; 
+    height: 52rem; //Trùng chiều cao height = 0 --> Xảy ra khi lấy 1 element ra khỏi flow mặc định (position :absolute) --> Để height cha = height của con = 
+                  //50rem Hoặc float thì dùng .clear-fix
+    
+    &__side {
+        height: 52rem;
+        transition: all 0.8s ease;  
+        position: absolute; 
+        top: 0;
+        left: 0; 
+        width: 100%; //Khi chỉnh position: absolute --> element tự chỉnh để fit với width của chính nó (text) --> Set width : 100% để fit với 
+                     //phần tử cha chứ không phải là text  > card = col-1-of-3
+        backface-visibility: hidden; //Che phần sau . Tìm hiểu thêm ?
+        
+        box-shadow: 0 1.5rem 4rem rgba($color-dark, 0.5);
+
+        &--front {
+            background-color: $color-white;
+        } 
+
+        &--back {
+        
+            transform: rotateY(180deg); //Phần back đã lật sẵn 
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            } 
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            } 
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);//Khi hover .card thì .card__side--front lật lại
+    } 
+
+    &:hover &__side--back {
+        transform: rotateY(0deg);//Còn khi hover .card thì .card__side--back lật lại vị trí ban đầu 
+    } 
+
+    
+    &__picture { 
+        height: 23rem;
+        background-size: cover;
+        background-blend-mode: screen; // background-image : linear-gradient(color) + url(image)
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg); 
+        }  
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6.jpg); 
+        } 
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg); 
+        } 
+
+    } 
+
+    &__heading {
+        font-size: 2.8rem; 
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $color-white;  
+
+        position: absolute;  
+        top: 12rem;
+        right: 4rem; 
+
+        text-align: right; 
+        width: 75%;
+    } 
+
+    &__heading-span {  
+        padding: 1rem 1.5rem; 
+        -webkit-box-decoration-break: clone; //-webkit-box : Google chrome
+        box-decoration-break: clone; //Tách 2 phần text trong cùng 1 thẻ thành 2 thẻ chứa 2 phần text cùng 1 style. Tìm hiểu thêm
+        
+        &--1 { 
+            background-image: linear-gradient(to right, rgba($color-secondary-light, 0.85) , rgba($color-secondary-dark, 0.85)); 
+        }  
+
+        &--2 { 
+            background-image: linear-gradient(to right, rgba($color-primary-light, 0.85) , rgba($color-primary-dark, 0.85)); 
+        }  
+
+        &--3 { 
+            background-image: linear-gradient(to right, rgba($color-tertiary-light, 0.85) , rgba($color-tertiary-dark, 0.85)); 
+        }
+    } 
+
+
+    &__detail { 
+        padding: 3rem;
+        ul {  
+            width: 80%;
+            list-style: none; 
+            text-align: center;  
+            margin: 0 auto;
+
+            li {
+               
+                font-size: 1.5rem; 
+                padding: 1rem; 
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-gray-dark;
+                }
+            }
+        }
+    } 
+
+    &__cta {
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform:translate(-50%, -50%); 
+        text-align:center; 
+        width: 90%; //Bình thường chiếm width đúng bằng nội dung của nó --> button chia làm 2. Fix 90% width cha -->đủ không gian button bình thường
+    } 
+
+    &__price-box {
+     
+        margin-bottom: 8rem; 
+        color: $color-white;
+    } 
+
+    &__price-only {
+        font-size: 3rem; 
+        text-transform: uppercase;
+    } 
+
+    &__price-value {
+        font-size: 6rem; 
+        font-weight: 100;
+    }
+}

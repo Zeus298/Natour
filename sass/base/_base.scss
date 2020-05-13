@@ -1,0 +1,24 @@
+
+*, *::after, *::before /*Tác dụng : Set padding ,margin, ... cho pseudo element */  
+{
+   margin: 0; 
+   padding: 0; 
+   box-sizing: border-box;
+}  
+
+/*Root font-size set in html selector 
+1 rem = exactly root font-size
+*/
+html {
+    font-size: 62.5%; /* -> 1 rem = 10px -- Ta nên chuyển sang %  absolute default 16px = 100% So 10px --> 10x100 / 16 = 62.5%*/  
+
+}
+/*Quy định toàn bộ text trong trang web ở đây*/
+body {
+    /* font-size: 16px;  */
+    font-weight: 400;  
+    font-family: "Lato", sans-serif; 
+    line-height: 1.7; /*Khoảng cách giữa các dòng*/
+    // color: $color-gray-dark; 
+    padding: 0 2rem;
+} 

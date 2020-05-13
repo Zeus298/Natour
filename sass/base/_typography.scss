@@ -1,0 +1,63 @@
+
+/*Phần text trong header*/
+.heading-primary {
+    color: $color-white; 
+    text-transform: uppercase; 
+
+    /*Text phía trên outdoor*/
+    &--main {
+        display: block; 
+        font-size: 6rem; 
+        font-weight: 300; 
+        letter-spacing: 3.5rem; 
+
+        animation-name: moveFromLeft; 
+        animation-duration: 3s;  
+        animation-timing-function: ease-in; /*Phân phối thời gian lúc đầu nhanh - lúc cuối chậm*/
+    } 
+
+    /*Text phía dưới is where life happens*/
+    &--sub {
+        display: block;  
+        font-size: 2rem; 
+        font-weight: 700; 
+        letter-spacing: 1.8rem; 
+
+        animation: moveFromRight 3s ease-out;
+    } 
+
+}  
+
+
+.heading-secondary { /*Text nằm giữa phần Section-about 'Exciting tours for adventurous people'*/
+    text-transform: uppercase;
+    font-size: 3.5rem; 
+    font-weight: 700; 
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark); 
+    display: inline-block;  
+    
+    -webkit-background-clip: text; //Màu lồng bên trong chữ
+    color: transparent; 
+    
+    letter-spacing: 2px;
+    transition: all 0.2s; 
+
+    &:hover {
+        transform: skewX(15deg) skewY(2deg) scale(1.2); //Độ nghiêng 
+        text-shadow: 0.5rem 1rem 2rem rgba($color-dark, 0.2); // Độ bóng của text x y độ-mờ màu
+    }
+} 
+
+.heading-tertiary {
+    font-size: $default-font-size; 
+    font-weight: 700; 
+    text-transform: uppercase;
+} 
+
+.paragraph {
+    font-size: $default-font-size; 
+
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+}
